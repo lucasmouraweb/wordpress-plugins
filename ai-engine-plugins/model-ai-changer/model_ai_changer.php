@@ -1,11 +1,9 @@
 <?php
 /*
 Plugin Name: Model AI Changer
-Plugin URI: 
-Description: Permite que os usuários escolham um modelo de IA e salva a escolha em um campo personalizado.
+Description: Allows users to choose an AI model and saves the choice in a custom field.
 Version: 1.0
-Author: 
-Author URI: 
+Author: Lucas Moura
 */
 
 function model_ai_changer_shortcode() {

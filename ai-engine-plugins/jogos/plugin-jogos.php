@@ -1,26 +1,27 @@
 <?php
 /*
-Plugin Name: Jogos
-Description: Um plugin para criar, editar e excluir custom posts chamados 'jogos' no front-end do WordPress.
+Plugin Name: Games
+Description: A plugin to create, edit and delete custom posts called 'games' on the WordPress front-end.
 Version: 1.4
 Author: Lucas Moura
 */
 
-// Registrando o custom post type 'jogos'
-function meu_plugin_jogos_post_type() {
+// Registering the custom post type 'games
+
+function plugin_games_post_type() {
     $args = array(
         'public' => true,
-        'label' => 'Jogos',
+        'label' => 'games',
         'supports' => array('title', 'editor', 'custom-fields'),
         'show_in_rest' => true,
     );
 
-    register_post_type('jogos', $args);
+    register_post_type('games', $args);
 }
-add_action('init', 'meu_plugin_jogos_post_type');
+add_action('init', 'plugin_games_post_type');
 
-// Registrando os campos personalizados
-function meu_plugin_jogos_register_meta() {
+// Registering custom fields
+function meu_plugin_games_register_meta() {
     $fields = array(
         'memorias_da_aventura',
         'nome_jogador',
@@ -47,34 +48,34 @@ function meu_plugin_jogos_register_meta() {
     );
 
     foreach ($fields as $field) {
-        register_post_meta('jogos', $field, array(
+        register_post_meta('games', $field, array(
             'show_in_rest' => true,
             'single' => true,
             'type' => 'string',
         ));
     }
 }
-add_action('init', 'meu_plugin_jogos_register_meta');
+add_action('init', 'meu_plugin_games_register_meta');
 
 // Registrando os shortcodes
-function meu_plugin_jogos_shortcode_editor() {
+function meu_plugin_games_shortcode_editor() {
     ob_start();
-    include 'formulario-jogos.php';
+    include 'formulario-games.php';
     return ob_get_clean();
 }
-add_shortcode('meu_plugin_jogos_editor', 'meu_plugin_jogos_shortcode_editor');
+add_shortcode('meu_plugin_games_editor', 'meu_plugin_games_shortcode_editor');
 
-function meu_plugin_jogos_shortcode_lista() {
+function meu_plugin_games_shortcode_lista() {
     ob_start();
-    include 'lista-jogos.php';
+    include 'lista-games.php';
     return ob_get_clean();
 }
-add_shortcode('meu_plugin_jogos_lista', 'meu_plugin_jogos_shortcode_lista');
+add_shortcode('meu_plugin_games_lista', 'meu_plugin_games_shortcode_lista');
 
 // Excluindo o jogo
-function meu_plugin_jogos_excluir() {
-    if (isset($_POST['meu_plugin_jogos_excluir'])) {
-        $jogo_id = intval($_POST['meu_plugin_jogos_excluir']);
+function meu_plugin_games_excluir() {
+    if (isset($_POST['meu_plugin_games_excluir'])) {
+        $jogo_id = intval($_POST['meu_plugin_games_excluir']);
         $jogo = get_post($jogo_id);
         $user_id = get_current_user_id();
 
@@ -87,5 +88,5 @@ function meu_plugin_jogos_excluir() {
         die();
     }
 }
-add_action('init', 'meu_plugin_jogos_excluir');
+add_action('init', 'meu_plugin_games_excluir');
 ?>

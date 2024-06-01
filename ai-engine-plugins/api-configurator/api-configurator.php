@@ -1,11 +1,9 @@
 <?php
 /*
 Plugin Name: Custom API Keys
-Plugin URI: https://example.com/
 Description: Adds custom API key fields for OpenAI and Claude AI to the user profile and provides a shortcode to display and update the values using AJAX.
-Version: 1.0
-Author: Your Name
-Author URI: https://example.com/
+Version: 1.3
+Author: Lucas Moura
 */
 
 // Add custom user fields

@@ -1,11 +1,9 @@
 <?php
 /*
 Plugin Name: Último Background Image
-Plugin URI: https://example.com/
-Description: Pega a última imagem gerada na div #image-gen e coloca como background-image da div .mwai-content filha da div de id #chat-code.
-Version: 1.0
-Author: Seu Nome
-Author URI: https://example.com/
+Description: Take the last image generated in the #image-gen div and place it as the background-image of the .mwai-content div that is the child of the #chat-code id div.
+Version: 1.2
+Author: Lucas Moura
 */
 
 function ultimo_background_image_enqueue_scripts() {
